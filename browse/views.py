@@ -10,6 +10,6 @@ def Home_page(request):
 @csrf_exempt
 def webhook_notification(request):
     print(request.method, 111111)
-    print(request.data, 22222)
+    print(request.POST)
     print(request.__dict__)
     return HttpResponse(status=200)
