@@ -11,5 +11,5 @@ def Home_page(request):
 def webhook_notification(request):
     print(request.method, 111111)
     print(request.POST)
-    print(request.__dict__)
+    print(request.body)
     return HttpResponse(status=200)
