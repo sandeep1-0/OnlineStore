@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+import json
 
 @csrf_exempt
 def Home_page(request):
@@ -9,7 +10,6 @@ def Home_page(request):
 
 @csrf_exempt
 def webhook_notification(request):
-    print(request.method, 111111)
-    print(request.POST)
-    print(request.body)
+    order = json.loads(request.body)
+    print(order)
     return HttpResponse(status=200)
