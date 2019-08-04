@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Order></title>
+</head>
+<body>
+<form action="" method="post" novalidate>{% csrf_token %}
+
+    {{ form | crispy }}
+
+    <input type="submit" value="update" class="btn btn-primary">
+
+</form>
+
+</body>
+</html>

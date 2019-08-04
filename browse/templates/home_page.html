@@ -1,1 +1,53 @@
-{% extends 'layout.html' %}
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>ALL ORDERS</h2>
+{% if order %}
+<table>
+    <th>ORDER ID</th>
+    <th>EMAIL ADDRESS</th>
+    <th>PHONE NUMBER</th>
+    <th>NOTES</th>
+    <th>EDIT</th>
+    {% for row in order %}
+    <tr>
+    <td>{{row.order_id }}</td>
+        <td>{{row.email }}</td>
+        <td>{{row.phone}}</td>
+        <td>{{row.notes }}</td>
+        <td><a href="/update_order?id={{row.order_id}}" ><button data-toggle="modal" data-target="#modaldemo3" class="value-modal"><i class="icon ion-edit"></i></button></a></td>
+    </tr>
+    {% endfor %}
+     <tr>
+        <td>1008</td>
+         <td>sid@gmail.com</td>
+         <td>9895645145</td>
+         <td>hadhod</td>
+    </tr>
+ </table>
+{% endif %}
+</body>
+</html>
+
+
