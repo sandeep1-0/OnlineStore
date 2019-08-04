@@ -9,20 +9,14 @@ from browse.models import *
 
 
 @csrf_exempt
-def Home_page(request):
-    return render(request, 'home_page.html')
-
-
-@csrf_exempt
 def webhook_notification(request):
     try:
         order = json.loads(request.body)
-        print(order)
 
         order_details = OrderDetails.objects.get_or_create(order_id=order.get('order_number'),
                                                            email=order.get('email'),
                                                            phone=order.get('phone'),
-                                                           notes=order.get('notes'),
+                                                           notes=order.get('note'),
                                                            )
 
         order_price = OrderPriceDetails.objects.create(order=order_details[0],
